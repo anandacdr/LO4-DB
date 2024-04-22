@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indi Telecom Helpdesk Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Indi Telecom Helpdesk Management System</h1>
+    </header>
+
+    <div class="container">
+        <section id="call-form">
+            <h2>Submit Call Details</h2>
+            <form action="/submit-call" method="POST">
+                <label for="caller-name">Caller Name:</label>
+                <input type="text" id="caller-name" name="caller_name" required>
+
+                <label for="operator-name">Operator Name:</label>
+                <input type="text" id="operator-name" name="operator_name" required>
+
+                <label for="serial-number">Serial Number:</label>
+                <input type="text" id="serial-number" name="serial_number" required>
+
+                <label for="operating-system">Operating System:</label>
+                <input type="text" id="operating-system" name="operating_system">
+
+                <label for="software-used">Software Used:</label>
+                <input type="text" id="software-used" name="software_used">
+
+                <label for="problem-description">Problem Description:</label>
+                <textarea id="problem-description" name="problem_description" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="calls-table">
+            <h2>Call Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Caller Name</th>
+                        <th>Operator Name</th>
+                        <th>Time of Call</th>
+                        <th>Serial Number</th>
+                        <th>Operating System</th>
+                        <th>Software Used</th>
+                        <th>Problem ID</th>
+                        <th>Problem Description</th>
+                        <th>Resolved</th>
+                    </tr>
+                </thead>
+                <tbody class="calls-body">
+                    {% for call in calls %}
+                    <tr>
+                        <td>{{ call.id }}</td>
+                        <td>{{ call.caller_name }}</td>
+                        <td>{{ call.operator_name }}</td>
+                        <td>{{ call.time_of_call }}</td>
+                        <td>{{ call.serial_number }}</td>
+                        <td>{{ call.operating_system }}</td>
+                        <td>{{ call.software_used }}</td>
+                        <td>{{ call.problem_id }}</td>
+                        <td>{{ call.problem_description }}</td>
+                        <td>{{ call.resolved }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

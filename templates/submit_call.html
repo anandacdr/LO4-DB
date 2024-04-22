@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Call</title>
+</head>
+<body>
+    <h1>Submit Call</h1>
+    <form action="/submit-call" method="POST">
+        <label for="caller-name">Caller Name:</label>
+        <input type="text" id="caller-name" name="caller_name" required><br>
+
+        <label for="operator-name">Operator Name:</label>
+        <input type="text" id="operator-name" name="operator_name" required><br>
+
+        <label for="serial-number">Serial Number:</label>
+        <input type="text" id="serial-number" name="serial_number" required><br>
+
+        <label for="operating-system">Operating System:</label>
+        <input type="text" id="operating-system" name="operating_system"><br>
+
+        <label for="software-used">Software Used:</label>
+        <input type="text" id="software-used" name="software_used"><br>
+
+        <label for="problem-id">Problem ID:</label>
+        <input type="number" id="problem-id" name="problem_id" required><br>
+
+        <label for="problem-description">Problem Description:</label>
+        <textarea id="problem-description" name="problem_description" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
